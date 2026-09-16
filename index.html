@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>个人主页</title>
+  <!-- 引入 GitHub 风格的 Markdown 样式 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <style>
+    body {
+      box-sizing: border-box;
+      min-width: 200px;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 45px;
+    }
+    @media (max-width: 767px) {
+      body { padding: 15px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- 这里放你的 Markdown 原文 -->
+  <textarea id="markdown-source" style="display:none">
+# 张三
+
+**年龄：** 25 岁
+
+**性别：** 男
+
+## 联系方式
+- 📧 邮箱：zhangsan@example.com
+- 📱 电话：+86 138-xxxx-xxxx
+- 💬 微信：zhangsan_wx
+
+## 关于我
+简单一两句话介绍一下自己，比如所在行业、兴趣爱好等。
+  </textarea>
+
+  <!-- 渲染容器 -->
+  <article class="markdown-body" id="content"></article>
+
+  <!-- 引入 marked 库，把 Markdown 解析成 HTML -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    const md = document.getElementById('markdown-source').textContent;
+    document.getElementById('content').innerHTML = marked.parse(md);
+  </script>
+</body>
+</html>
+
